@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9B03FBAC211923C10062E917 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B03FBAB211923C10062E917 /* main.cpp */; };
-		9B60C80121193EC100F89542 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B60C7FF21193EC100F89542 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +25,6 @@
 /* Begin PBXFileReference section */
 		9B03FBA8211923C10062E917 /* EstructuraDeDatos */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EstructuraDeDatos; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B03FBAB211923C10062E917 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		9B60C7FF21193EC100F89542 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		9B60C80021193EC100F89542 /* main.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = main.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +41,7 @@
 		9B03FB9F211923C10062E917 = {
 			isa = PBXGroup;
 			children = (
-				9B60C7FE21193E6000F89542 /* Ejercicios */,
-				9B03FBAA211923C10062E917 /* EstructuraDeDatos */,
+				9B03FBAA211923C10062E917 /* Principal */,
 				9B03FBA9211923C10062E917 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,21 +54,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9B03FBAA211923C10062E917 /* EstructuraDeDatos */ = {
+		9B03FBAA211923C10062E917 /* Principal */ = {
 			isa = PBXGroup;
 			children = (
 				9B03FBAB211923C10062E917 /* main.cpp */,
 			);
-			path = EstructuraDeDatos;
-			sourceTree = "<group>";
-		};
-		9B60C7FE21193E6000F89542 /* Ejercicios */ = {
-			isa = PBXGroup;
-			children = (
-				9B60C7FF21193EC100F89542 /* main.cpp */,
-				9B60C80021193EC100F89542 /* main.hpp */,
-			);
-			path = Ejercicios;
+			path = Principal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +119,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B60C80121193EC100F89542 /* main.cpp in Sources */,
 				9B03FBAC211923C10062E917 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
