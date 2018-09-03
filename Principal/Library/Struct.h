@@ -12,58 +12,74 @@
 
 #endif /* Struct_h */
 
-struct node {
+struct nodo {
     
-    int number;
+    int dato;
     
-    node *next;
+    nodo *siguiente;
     
 };
 
-struct node *first, *last;
+struct nodo *primero, *ultimo;
 
-class List {
+class Lista {
     
     public:
     
-        void Add (){
+        void Adicionar (){
 
-            // We create a new variable of type pointer called new_element that represents a new element of list.
-            struct node *new_element;
+            struct nodo *nuevo;
             
-            // We reserve enough memory for the new element.
-            new_element = (struct node *) malloc(sizeof(struct node));
+            nuevo = (struct nodo *) malloc(sizeof(struct nodo));
             
-            // We ask if there is enough memory for the new element
-            if (new_element == NULL)
+            if (nuevo == NULL)
                 
-                std::cout << "There is not memory available \n";
+                std::cout << "No hay memoria disponible \n";
             
             else{
-                // We have found enough memory
                 
-                std::cout << "Put here the new list node value \n";
+                std::cout << "Escriba nuevo elemento: \n";
                 
-                std::cin >> new_element->number;
+                std::cin >> nuevo->dato;
                 
-                new_element->next = NULL;
+                nuevo->siguiente = NULL;
             }
             
-            
-            if (first == NULL){
+            if (primero == NULL){
                 
-                first = new_element;
-                
-                first = new_element;
+                primero = ultimo = nuevo;
                 
             }else{
                 
-                last->next = new_element;
+                ultimo->siguiente = nuevo;
                 
-                last = new_element;
-                
+                ultimo = nuevo;
             }
         
         }
     
+        void Listar (){
+        
+            struct nodo *aux;
+            
+            aux = primero;
+            
+            while (aux != NULL) {
+                
+                std::cout << aux->dato << ", ";
+                
+                aux = aux->siguiente;
+            }
+        
+        }
+    
+        nodo *BuscarUltimo (){
+        
+            nodo *ultimo;
+            
+            
+            
+            
+            return ultimo;
+        }
 };

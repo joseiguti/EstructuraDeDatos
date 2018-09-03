@@ -10,15 +10,45 @@
 #include <stdio.h>
 
 #include "Library/Struct.h"
+#include "Library/Menu.h"
 
 int main(int argc, const char * argv[]) {
     
-    //List list;
+    int opcion = 0;
     
-    //list.Add();
+    Menu menu;
+    
+    Lista lista;
+
+    do {
+        
+        opcion = menu.verMenu();
+        
+        switch (opcion) {
+            case 1:
+                
+                break;
+            case 2:
+                lista.Adicionar();
+                
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                lista.Listar();
+                
+            break;
+            default:
+                std::cout << "Opción no valida ";
+            break;
+        }
+        
+    }while(opcion != 6);
     
     // insert code here...
     //std::cout << "Hello, World!\n";
-    // Cambio en el branch actual del 23 de agosto
+    
     return 0;
 }
