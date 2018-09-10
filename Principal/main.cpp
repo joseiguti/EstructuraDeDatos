@@ -9,46 +9,15 @@
 #include <iostream>
 #include <stdio.h>
 
+
 #include "Library/Struct.h"
 #include "Library/Menu.h"
 
 int main(int argc, const char * argv[]) {
     
-    int opcion = 0;
-    
     Menu menu;
     
-    Lista lista;
-
-    do {
-        
-        opcion = menu.verMenu();
-        
-        switch (opcion) {
-            case 1:
-                
-                break;
-            case 2:
-                lista.Adicionar();
-                
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                lista.Listar();
-                
-            break;
-            default:
-                std::cout << "Opción no valida ";
-            break;
-        }
-        
-    }while(opcion != 6);
-    
-    // insert code here...
-    //std::cout << "Hello, World!\n";
+    menu.run();
     
     return 0;
 }

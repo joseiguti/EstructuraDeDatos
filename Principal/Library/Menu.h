@@ -9,33 +9,68 @@
 #ifndef Menu_h
 #define Menu_h
 
+#include <curses.h>
 
 #endif /* Menu_h */
 
 class Menu {
     
 public:
+
+    void run (){
+        
+        waitOption();
+        
+    }
     
-    int verMenu () {
+protected:
+    
+    int showMenu () {
         
-        int opcion = 0;
+        std::cout << "Main menu.\n";
         
-        std::cout << "Menú principal.\n";
+        std::cout << "1- Show all elements.\n";
         
-        std::cout << "1- Agregar al inicio.\n";
+        std::cout << "2- Insert at begin.\n";
         
-        std::cout << "2- Agregar al final.\n";
+        std::cout << "3- Insert at end.\n";
         
-        std::cout << "3- Eliminar posición/indice.\n";
+        std::cout << "10- Exit.\n";
         
-        std::cout << "4- Buscar elemento.\n";
+        std::cout << "Please select any option...\n";
+
+        return 0;
+    }
+    
+    void waitOption (){
+
+        Lista list;
         
-        std::cout << "5- Listar elementos.\n";
+        int option = 0;
         
-        std::cout << "6- Salir.\n";
+        do {
+            
+            showMenu();
+
+            std::cin >> option;
+            
+            switch (option) {
+                case 1:
+                    list.printList();
+                    break;
+                case 2:
+                    list.insertAtBegin();
+                    break;
+                case 3:
+                    list.insertAtEnd();
+                    break;
+                
+                default:
+                    std::cout << "No valid option!";
+                    break;
+            }
+            
+        }while(option != 10);
         
-        std::cin >> opcion;
-        
-        return opcion;
     }
 };
