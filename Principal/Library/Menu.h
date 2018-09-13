@@ -35,6 +35,10 @@ protected:
         
         std::cout << "3- Insert at end.\n";
         
+        std::cout << "4- Delete at begin.\n";
+        
+        std::cout << "5- Delete at end.\n";
+        
         std::cout << "10- Exit.\n";
         
         std::cout << "Please select any option...\n";
@@ -64,7 +68,13 @@ protected:
                 case 3:
                     list.insertAtEnd();
                     break;
-                
+                case 4:
+                    std::cout << "Longitud de la lista: " << list.lenght() << "\n";
+                    list.deleteAtBegin();
+                    break;
+                case 5:
+                    list.deleteAtEnd();
+                    break;
                 default:
                     std::cout << "No valid option!";
                     break;

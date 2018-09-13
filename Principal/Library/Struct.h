@@ -13,6 +13,7 @@
 
 #endif /* Struct_h */
 
+#define ERROR_BLANK_LIST "Sorry, there are not elements inside the list "
 #define MSG_PUT_NODE "Put here new element: "
 #define MSG_NO_MEMORY "There is not memory available. "
 #define TAG_ID "Id: "
@@ -78,9 +79,10 @@ class Lista {
             
         }else{
             
-            ultimo->siguiente = nuevo;
+            nuevo->siguiente = primero;
             
-            ultimo = nuevo;
+            primero = nuevo;
+           
         }
         
     }
@@ -117,7 +119,28 @@ class Lista {
     }
     
     void deleteAtBegin (){
-        
+
+        if (primero == NULL){
+            
+            std::cout << ERROR_BLANK_LIST << "\n";
+            
+        }else{
+            
+            // Buscamos el segundo elemento de la lista para asignarle a ese el primero
+            // Si solo hay un elemento entonces, entonces borramos el elemento y primero sera de nuevo igual a NULL
+            // Necesitamos una funcion que no diga cuantoe elementos hay en la lista.
+            // Por ultimo necesitamos una funcion que retorne el nodo segun el indice que le pasamos
+            
+            if (lenght()==1){
+                
+                
+                
+            }else{
+                
+                
+            }
+            
+        }
         
     }
     
@@ -171,9 +194,25 @@ class Lista {
         
     }
     
-    void lenght (){
+    /**
+     * Retorna la cantidad de elementos que tiene la lista
+     */
+    int lenght (){
+       
+        int cantidad = 0;
         
+        struct nodo *aux;
         
+        aux = primero;
+        
+        while (aux != NULL) {
+            
+            aux = aux->siguiente;
+            
+            cantidad++;
+        }
+        
+        return cantidad;
     }
     
     void cloneList (){
@@ -191,9 +230,35 @@ class Lista {
         
     }
     
-    void indexOf (){
+    /**
+     * Retorna el nodo que nosotros le digamos
+     */
+    nodo *indexOf ( int index ){
         
+        int indexi = 0;
+
+        nodo *elemento;
         
+        struct nodo *aux;
+        
+        aux = primero;
+        
+        while (aux != NULL) {
+            
+            if (indexi == index){
+
+                elemento = aux->siguiente;
+                
+                break;
+                
+            }
+            
+            aux = aux->siguiente;
+        
+            indexi++;
+        }
+    
+        return elemento;
     }
     
     /*
