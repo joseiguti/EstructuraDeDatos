@@ -69,7 +69,6 @@ protected:
                     list.insertAtEnd();
                     break;
                 case 4:
-                    std::cout << "Longitud de la lista: " << list.lenght() << "\n";
                     list.deleteAtBegin();
                     break;
                 case 5:

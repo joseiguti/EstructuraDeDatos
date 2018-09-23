@@ -38,33 +38,106 @@ class Lista {
     
     protected:
     
-    
-    
     public:
     
-    void isEmty(){
+    bool isEmty(){
         
+        if (!lenght())
         
+            return true;
+        
+        else
+            
+            return false;
     }
     
     void printList (){
         
-        struct nodo *aux;
+        /*
         
-        aux = primero;
+        // Fila
+        
+        nodo * nuevo_1 = createNode();
+        
+        nuevo_1->nombre = "Jose";
+        
+        primero = nuevo_1;
+
+        // ----
+        
+        nodo * nuevo_2 = createNode();
+        
+        nuevo_1->siguiente = nuevo_2;
+        
+        nuevo_2->nombre = "Maria";
+        
+        // ---
+        
+        nodo * nuevo_3 = createNode();
+        
+        nuevo_2->siguiente = nuevo_3;
+        
+        nuevo_3->nombre = "Renato";
+        
+        // ---
+        
+        // Pila
+        
+        nodo * nuevo_4 = createNode();
+        
+        nuevo_4->nombre = "Blanca";
+        
+        nuevo_4->siguiente = primero;
+        
+        primero = nuevo_4;
+        
+        // ---
+        
+        nodo * nuevo_5 = createNode();
+        
+        nuevo_5->nombre = "Ignacio";
+        
+        nuevo_5->siguiente = primero;
+        
+        primero = nuevo_5;
+
+        // ---
+        
+        nodo * nuevo_6 = createNode();
+        
+        nuevo_6->nombre = "Teofilo";
+        
+        nuevo_6->siguiente = primero;
+        
+        primero = nuevo_6;
+        
+        struct nodo * recorre = primero;
+        
+        while (recorre != NULL){
+        
+            std::cout << recorre->nombre << "\n";
+            
+            recorre = recorre->siguiente;
+        }
+        */
+        int indice = 0;
+        
+        struct nodo *aux  = primero;
         
         while (aux != NULL) {
             
-            std::cout << TAG_ID << aux->ide << ", " << TAG_NAME << aux->nombre << ", " << TAG_LASTNAME << aux->apellido << "\n ";
+            std::cout << "Indice: " << indice << ". " << TAG_ID << aux->ide << ", " << TAG_NAME << aux->nombre << ", " << TAG_LASTNAME << aux->apellido << "\n";
             
             aux = aux->siguiente;
+            
+            indice++;
         }
-        
+
     }
     
     void insertAtBegin (){
         
-        nodo* nuevo = createNode();
+        nodo * nuevo = createNode();
         
         if (nuevo != NULL){
             
@@ -75,7 +148,7 @@ class Lista {
         
         if (primero == NULL){
             
-            primero = ultimo = nuevo;
+            primero = nuevo;
             
         }else{
             
@@ -102,7 +175,7 @@ class Lista {
         
         if (primero == NULL){
             
-            primero = ultimo = nuevo;
+            primero = nuevo;
             
         }else{
             
@@ -126,19 +199,25 @@ class Lista {
             
         }else{
             
-            // Buscamos el segundo elemento de la lista para asignarle a ese el primero
-            // Si solo hay un elemento entonces, entonces borramos el elemento y primero sera de nuevo igual a NULL
-            // Necesitamos una funcion que no diga cuantoe elementos hay en la lista.
-            // Por ultimo necesitamos una funcion que retorne el nodo segun el indice que le pasamos
+            nodo* inidice0 = get(0);
             
-            if (lenght()==1){
+            nodo* inidice1 = get(1);
+            
+            if (inidice1 != NULL){
+            
+                primero = inidice1;
                 
-                
-                
+                std::cout << "Caso1 \n";
+            
             }else{
                 
+                primero = NULL;
                 
+                std::cout << "Caso2 \n";
             }
+            
+            free(inidice0);
+            
             
         }
         
@@ -212,6 +291,8 @@ class Lista {
             cantidad++;
         }
         
+        free (aux);
+        
         return cantidad;
     }
     
@@ -225,40 +306,9 @@ class Lista {
         
     }
     
-    void get (){
+    nodo *get (int index){
         
-        
-    }
-    
-    /**
-     * Retorna el nodo que nosotros le digamos
-     */
-    nodo *indexOf ( int index ){
-        
-        int indexi = 0;
-
-        nodo *elemento;
-        
-        struct nodo *aux;
-        
-        aux = primero;
-        
-        while (aux != NULL) {
-            
-            if (indexi == index){
-
-                elemento = aux->siguiente;
-                
-                break;
-                
-            }
-            
-            aux = aux->siguiente;
-        
-            indexi++;
-        }
-    
-        return elemento;
+        return indexOf(index);
     }
     
     /*
@@ -272,6 +322,36 @@ class Lista {
     */
     
     private :
+    
+    /**
+     * Retorna el nodo que nosotros le digamos
+     */
+    nodo *indexOf ( int index ){
+        
+        int indexi = 1;
+        
+        nodo *elemento = NULL;
+        
+        struct nodo *aux;
+        
+        aux = primero;
+        
+        while (aux != NULL) {
+            
+            if (indexi == index){
+                
+                elemento = aux->siguiente;
+            
+                break;
+            }
+            
+            aux = aux->siguiente;
+            
+            indexi++;
+        }
+        
+        return elemento;
+    }
     
     nodo *updateNode (nodo *temporal){
         
